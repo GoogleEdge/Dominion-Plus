@@ -25,6 +25,7 @@ errors:
   auto-create-disabled: "Automatic creation is disabled. Use the point-selection command workflow."
 titles:
   all-dominions: "All Dominions"
+  server-dominions: "Server Dominions"
   my-dominions: "My Dominions"
   children: "Sub-dominions · {dominion}"
   copy-source: "Select Copy Source"
@@ -62,6 +63,7 @@ labels:
     member: "members"
     group: "groups and memberships"
 confirm:
+  teleport: "Teleport to {dominion}"
   delete-dominion: "Delete {dominion}"
   remove-member: "Remove {player}"
   delete-group: "Delete group {group}"
@@ -102,6 +104,10 @@ menus:
         name: "<yellow>Group Titles"
         lore:
           - "<gray>Select a title from your groups."
+      server-dominions:
+        name: "<aqua>Browse Server Dominions"
+        lore:
+          - "<gray>View every dominion on this server."
       all:
         name: "<gold>All Dominions"
         lore:
@@ -140,6 +146,14 @@ menus:
           - ""
           - "<yellow>Left-click to open or select."
           - "<aqua>Right-click to teleport."
+      server-content:
+        name: "<green>{dominion}"
+        lore:
+          - "<gray>Creator/owner: <white>{owner}"
+          - "<gray>World: <white>{world}"
+          - "<gray>Coordinates: <white>{coordinates}"
+          - ""
+          - "<yellow>Click to view details and confirm teleport."
       remote-content:
         name: "<aqua>{dominion}"
         lore:

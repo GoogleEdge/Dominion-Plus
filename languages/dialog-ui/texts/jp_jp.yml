@@ -40,6 +40,7 @@ errors:
   auto-create-disabled: "自動作成は無効です。ポイント選択コマンドのワークフローを使用してください。"
 titles:
   all-dominions: "すべての領地"
+  server-dominions: "サーバーのすべての領地"
   my-dominions: "自分の領地"
   children: "子領地 · {dominion}"
   copy-source: "コピー元を選択"
@@ -102,6 +103,7 @@ labels:
     member: "メンバー"
     group: "グループとメンバー"
 confirm:
+  teleport: "{dominion} にテレポート"
   delete-dominion: "{dominion} を削除"
   remove-member: "{player} を削除"
   delete-group: "グループ {group} を削除"
@@ -117,6 +119,7 @@ common:
   page: "<gray>ページ <white>{page}</white>/<white>{pages}</white> · 全{total}件"
 descriptions:
   title-list: "<gray>現在使用できるグループから称号を1つ選択します。"
+  server-dominion-entry: "<gray>作成者/所有者: <white>{owner}</white>\n<gray>ワールド: <white>{world}</white>\n<gray>座標: <white>{coordinates}</white>"
   dominion-entry: "<gray>所有者: <white>{owner}</white>\n<gray>ワールド: <white>{world}</white>\n<gray>サーバー: <white>{server}</white>\n<gray>サイズ: <white>{size}</white>"
   local-dominion-entry: "<gray>所有者: <white>{owner}</white>\n<gray>ワールド: <white>{world}</white>\n<gray>サイズ: <white>{size}</white>"
   remote-dominion-entry: "<gray>所有者: <white>{owner}</white>\n<gray>サーバー: <white>{server}</white>\n<gray>サイズ: <white>{size}</white>"
@@ -187,6 +190,10 @@ menus:
         name: "<yellow>グループ称号"
         lore:
           - "<gray>所属グループの称号を選択します。"
+      server-dominions:
+        name: "<aqua>サーバーの領地を表示"
+        lore:
+          - "<gray>このサーバーにあるすべての領地を表示します。"
       all:
         name: "<gold>すべての領地"
         lore:

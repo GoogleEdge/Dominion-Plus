@@ -85,7 +85,7 @@ public final class DialogMenuController {
             case TITLE_LIST -> titleListPage.render(player, session);
             case CONFIRM -> confirmPage.render(player, session);
 
-            case DOMINION_LIST, ALL_DOMINIONS, CHILD_LIST, COPY_SOURCE, PLAYER_DOMINIONS ->
+            case DOMINION_LIST, SERVER_DOMINIONS, ALL_DOMINIONS, CHILD_LIST, COPY_SOURCE, PLAYER_DOMINIONS ->
                     dominionListPage.render(player, session);
             case DASHBOARD -> dashboardPage.render(player, session);
             case AREA -> areaPage.render(player, session);

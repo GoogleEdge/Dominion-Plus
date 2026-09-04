@@ -40,7 +40,13 @@ final class BuiltinDominionMenu extends AbstractBuiltinMenu {
         MenuRoute route = session.current();
         List<DominionDTO> dominions;
         String title;
-        if (id(route) == MenuId.ALL_DOMINIONS) {
+        boolean serverBrowser = id(route) == MenuId.SERVER_DOMINIONS;
+        if (serverBrowser) {
+            dominions = api.getAllDominions().stream()
+                    .filter(dominion -> !isRemoteDominion(dominion))
+                    .toList();
+            title = config.text("titles.server-dominions");
+        } else if (id(route) == MenuId.ALL_DOMINIONS) {
             dominions = api.getAllDominions();
             title = config.text("titles.all-dominions");
         } else if (id(route) == MenuId.CHILD_LIST) {
@@ -72,18 +78,28 @@ final class BuiltinDominionMenu extends AbstractBuiltinMenu {
             boolean remote = isRemoteDominion(dominion);
             String textElement;
             ItemAppearance appearance;
-            if (remote) {
+            Map<String, Object> values;
+            if (serverBrowser) {
+                textElement = "server-content";
+                appearance = view.appearance("server-content");
+                values = dominionValues(dominion, false);
+            } else if (remote) {
                 textElement = "remote-content";
                 appearance = view.appearance("remote-content");
+                values = dominionValues(dominion, true);
             } else if (!dominion.getOwner().equals(player.getUniqueId())) {
                 textElement = "admin-content";
                 appearance = view.appearance("admin-content");
+                values = dominionValues(dominion, false);
             } else {
                 textElement = "local-content";
                 appearance = null;
+                values = dominionValues(dominion, false);
             }
-            view.itemAt(slot, "content", textElement, dominionValues(dominion, remote), null, appearance, click -> {
-                if (click.isRightClick()) {
+            view.itemAt(slot, "content", textElement, values, null, appearance, click -> {
+                if (serverBrowser) {
+                    confirmTeleport(player, dominion);
+                } else if (click.isRightClick()) {
                     teleport(player, dominion);
                 } else if (isLeftClick(click) && !remote) {
                     if (id(route) == MenuId.COPY_SOURCE) {
@@ -228,6 +244,11 @@ final class BuiltinDominionMenu extends AbstractBuiltinMenu {
         ui.submit(player, TeleportProvider.getInstance().teleport(player, dominion), accepted -> {
             if (accepted) ui.close(player);
         });
+    }
+
+    private void confirmTeleport(Player player, DominionDTO dominion) {
+        ui.confirm(player, configured("confirm.teleport", Map.of("dominion", dominion.getName())),
+                confirmedPlayer -> teleport(confirmedPlayer, dominion));
     }
 
     private static boolean isRemoteDominion(DominionDTO dominion) {
