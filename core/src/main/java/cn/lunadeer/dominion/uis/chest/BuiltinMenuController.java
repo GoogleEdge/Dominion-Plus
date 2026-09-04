@@ -31,7 +31,7 @@ final class BuiltinMenuController implements MenuController {
             case TITLE_LIST -> rootMenus.titleList(player, session);
             case CONFIRM -> rootMenus.confirm(player, session);
 
-            case DOMINION_LIST, ALL_DOMINIONS, CHILD_LIST, COPY_SOURCE,
+            case DOMINION_LIST, SERVER_DOMINIONS, ALL_DOMINIONS, CHILD_LIST, COPY_SOURCE,
                     PLAYER_DOMINIONS ->
                     dominionMenus.dominionList(player, session);
             case DASHBOARD -> dominionMenus.dashboard(player, session);

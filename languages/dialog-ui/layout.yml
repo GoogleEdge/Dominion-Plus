@@ -48,6 +48,8 @@ buttons:
     icon: minecraft:blocks/block/oak_sapling
   dominions:
     icon: minecraft:blocks/block/grass_block_side
+  server-dominions:
+    icon: minecraft:items/item/compass_00
   content:
     icon: minecraft:blocks/block/grass_block_side
   remote-content:

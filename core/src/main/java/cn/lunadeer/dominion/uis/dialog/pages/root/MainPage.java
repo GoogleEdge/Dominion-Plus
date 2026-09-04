@@ -39,7 +39,10 @@ public final class MainPage extends AbstractDialogPage {
                                 DialogRoute.of(DialogMenuId.TEMPLATE_LIST)))
                 .action("titles", Map.of(), LAYOUT.buttonWidth(),
                         (viewer, response) -> nav.push(viewer,
-                                DialogRoute.of(DialogMenuId.TITLE_LIST)));
+                                DialogRoute.of(DialogMenuId.TITLE_LIST)))
+                .action("server-dominions", Map.of(), LAYOUT.buttonWidth(),
+                        (viewer, response) -> nav.push(viewer,
+                                DialogRoute.of(DialogMenuId.SERVER_DOMINIONS)));
         if (player.hasPermission(adminPermission)) {
             page.action("all", Map.of(), LAYOUT.buttonWidth(),
                             (viewer, response) -> nav.push(viewer,

@@ -31,7 +31,7 @@ menus:
       - "####I####"
       - "#M#C#T#L#"
       - "##A#H#P##"
-      - "###U#X###"
+      - "#D#U#X###"
     symbols:
       '#': filler
       I: info
@@ -39,6 +39,7 @@ menus:
       C: create
       T: templates
       L: titles
+      D: server-dominions
       A: all
       P: player-dominions
       H: help
@@ -57,6 +58,8 @@ menus:
         material: WRITABLE_BOOK
       titles:
         material: NAME_TAG
+      server-dominions:
+        material: COMPASS
       all:
         material: SPYGLASS
       player-dominions:
@@ -92,6 +95,8 @@ menus:
         material: GRAY_STAINED_GLASS_PANE
       content:
         material: GRASS_BLOCK
+      server-content:
+        material: COMPASS
       remote-content:
         material: ENDER_CHEST
       admin-content:
@@ -758,8 +763,8 @@ menus:
       filler:
         material: GRAY_STAINED_GLASS_PANE
       confirm:
-        material: LIME_CONCRETE
+        material: GREEN_STAINED_GLASS_PANE
       info:
         material: PAPER
       cancel:
-        material: RED_CONCRETE
+        material: RED_STAINED_GLASS_PANE

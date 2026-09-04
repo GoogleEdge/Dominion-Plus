@@ -33,6 +33,8 @@ final class BuiltinRootMenu extends AbstractBuiltinMenu {
         view.item("create", Map.of(), null, click -> createDominionInput(player, null));
         view.item("templates", Map.of(), null, click -> nav.push(player, MenuRoute.of(MenuId.TEMPLATE_LIST)));
         view.item("titles", Map.of(), null, click -> nav.push(player, MenuRoute.of(MenuId.TITLE_LIST)));
+        view.item("server-dominions", Map.of(), null,
+                click -> nav.push(player, MenuRoute.of(MenuId.SERVER_DOMINIONS)));
         if (player.hasPermission(adminPermission)) {
             view.item("all", Map.of(), null, click -> nav.push(player, MenuRoute.of(MenuId.ALL_DOMINIONS)));
             view.item("player-dominions", Map.of(), null, click -> nav.push(player, MenuRoute.of(MenuId.ADMIN_PLAYER_DOMINIONS)));

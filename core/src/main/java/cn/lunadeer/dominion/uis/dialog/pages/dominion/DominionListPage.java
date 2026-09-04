@@ -39,7 +39,13 @@ public final class DominionListPage extends AbstractDialogPage {
         DialogRoute route = session.current();
         List<DominionDTO> dominions;
         String title;
-        if (id(route) == DialogMenuId.ALL_DOMINIONS) {
+        boolean serverBrowser = id(route) == DialogMenuId.SERVER_DOMINIONS;
+        if (serverBrowser) {
+            dominions = api.getAllDominions().stream()
+                    .filter(dominion -> !isRemoteDominion(dominion))
+                    .toList();
+            title = config.text("titles.server-dominions");
+        } else if (id(route) == DialogMenuId.ALL_DOMINIONS) {
             dominions = api.getAllDominions();
             title = config.text("titles.all-dominions");
         } else if (id(route) == DialogMenuId.CHILD_LIST) {
@@ -92,6 +98,15 @@ public final class DominionListPage extends AbstractDialogPage {
         for (DominionDTO dominion : dominions.subList(pagination.from(), pagination.to())) {
             boolean remote = isRemoteDominion(dominion);
             Map<String, Object> values = dominionValues(dominion, remote);
+            if (serverBrowser) {
+                DialogListTemplate.item(page, DominionDialogPage.component(dominion.getName()),
+                        DominionDialogPage.component(configured("descriptions.server-dominion-entry", values)),
+                        style.compactItemWidth(), page.icon("server-dominions"),
+                        (viewer, response) -> ui.confirm(viewer,
+                                configured("confirm.teleport", Map.of("dominion", dominion.getName())),
+                                confirmedPlayer -> teleport(confirmedPlayer, dominion)));
+                continue;
+            }
             var tooltip = DominionDialogPage.component(configured(
                     remote ? "descriptions.remote-dominion-entry"
                             : "descriptions.local-dominion-entry", values));

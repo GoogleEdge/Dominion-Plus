@@ -117,10 +117,14 @@ abstract class AbstractBuiltinMenu {
         String serverDisplay = remote
                 ? UiDataHandler.serverName(dominion.getServerId())
                 : String.valueOf(dominion.getServerId());
+        var teleportLocation = dominion.getTpLocation();
+        String coordinates = teleportLocation.getBlockX() + ", "
+                + teleportLocation.getBlockY() + ", " + teleportLocation.getBlockZ();
         return Map.ofEntries(Map.entry("dominion", dominion.getName()),
                 Map.entry("owner", dominion.getOwnerDTO().getLastKnownName()),
                 Map.entry("world", remote ? "" : worldDisplay),
                 Map.entry("server", serverDisplay),
+                Map.entry("coordinates", coordinates),
                 Map.entry("size", cuboid.xLength() + " × " + cuboid.yLength() + " × " + cuboid.zLength()),
                 Map.entry("bounds", cuboid.x1() + "," + cuboid.y1() + "," + cuboid.z1() + " → "
                         + cuboid.x2() + "," + cuboid.y2() + "," + cuboid.z2()),

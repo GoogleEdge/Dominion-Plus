@@ -40,6 +40,7 @@ errors:
   auto-create-disabled: 自动创建功能已禁用，请使用命令选点流程。
 titles:
   all-dominions: 所有领地
+  server-dominions: 服务器全部领地
   my-dominions: 我的领地
   children: 子领地 · {dominion}
   copy-source: 选择复制来源
@@ -102,6 +103,7 @@ labels:
     member: 成员
     group: 权限组及成员关系
 confirm:
+  teleport: 传送到 {dominion}
   delete-dominion: 删除 {dominion}
   remove-member: 移除 {player}
   delete-group: 删除权限组 {group}
@@ -117,6 +119,7 @@ common:
   page: <gray>第 <white>{page}</white>/<white>{pages}</white> 页 · 共 {total} 项
 descriptions:
   title-list: <gray>从你当前可用的权限组中选择一个称号。
+  server-dominion-entry: "<gray>创建者/所有者：<white>{owner}</white>\n<gray>世界：<white>{world}</white>\n<gray>坐标：<white>{coordinates}</white>"
   dominion-entry: "<gray>所有者：<white>{owner}</white>\n<gray>世界：<white>{world}</white>\n<gray>服务器：<white>{server}</white>\n<gray>大小：<white>{size}</white>"
   local-dominion-entry: "<gray>所有者：<white>{owner}</white>\n<gray>世界：<white>{world}</white>\n<gray>大小：<white>{size}</white>"
   remote-dominion-entry: "<gray>所有者：<white>{owner}</white>\n<gray>服务器：<white>{server}</white>\n<gray>大小：<white>{size}</white>"
@@ -187,6 +190,10 @@ menus:
         name: <yellow>权限组称号
         lore:
           - <gray>从你所在的权限组中选择称号。
+      server-dominions:
+        name: <aqua>浏览服务器领地
+        lore:
+          - <gray>查看本服务器内的全部领地。
       all:
         name: <gold>所有领地
         lore:

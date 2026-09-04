@@ -25,6 +25,7 @@ errors:
   auto-create-disabled: 自动创建功能已禁用，请使用命令选点流程。
 titles:
   all-dominions: 所有领地
+  server-dominions: 伺服器所有領地
   my-dominions: 我的领地
   children: 子领地 · {dominion}
   copy-source: 选择复制来源
@@ -62,6 +63,7 @@ labels:
     member: 成员
     group: 权限组及成员关系
 confirm:
+  teleport: 傳送到 {dominion}
   delete-dominion: 删除 {dominion}
   remove-member: 移除 {player}
   delete-group: 删除权限组 {group}
@@ -102,6 +104,10 @@ menus:
         name: <yellow>权限组称号
         lore:
           - <gray>从你所在的权限组中选择称号。
+      server-dominions:
+        name: <aqua>瀏覽伺服器領地
+        lore:
+          - <gray>查看本伺服器內的所有領地。
       all:
         name: <gold>所有领地
         lore:
@@ -166,6 +172,14 @@ menus:
           - ''
           - <yellow>左键点击打开或选择。
           - <aqua>右键点击传送。
+      server-content:
+        name: <green>{dominion}
+        lore:
+          - '<gray>建立者/擁有者：<white>{owner}'
+          - '<gray>世界：<white>{world}'
+          - '<gray>座標：<white>{coordinates}'
+          - ''
+          - <yellow>點擊查看詳情並確認傳送。
       remote-content:
         name: <aqua>{dominion}
         lore:
